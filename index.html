@@ -48,7 +48,8 @@ nav{position:sticky;top:calc(32px + env(safe-area-inset-top));z-index:50;backgro
   top: 0;
   left: 0;
   right: 0;
-  height: calc(32px + env(safe-area-inset-top));
+  height: 32px;
+  padding-top: env(safe-area-inset-top);
   z-index: 65;
   background: repeating-linear-gradient(
     135deg,
@@ -58,7 +59,7 @@ nav{position:sticky;top:calc(32px + env(safe-area-inset-top));z-index:50;backgro
     #F4F1EA 48px 64px
   );
   background-size: 300% 100%;
-  animation: pole 5s linear infinite;
+  animation: pole 12s linear infinite;
 }
 .logo{font-family:'Fraunces',serif;font-size:21px;font-weight:700;white-space:nowrap}
 .logo em{color:var(--teal);font-style:italic}
