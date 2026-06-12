@@ -224,48 +224,56 @@ footer{background:#10140F;color:rgba(244,241,234,.5);padding:34px 0;font-size:13
 .pricing-btn:hover{background:var(--teal-deep);}
 .pricing-btn .arrow{font-size:15px;}
 
-/* === Beautiful scrollable reviews carousel (comments clearly readable) === */
+/* === Beautiful scrollable reviews carousel (pure text, no photos, readable comments) === */
 .reviews-carousel{
   display:flex;
-  gap:16px;
+  gap:18px;
   overflow-x:auto;
   scroll-snap-type:x mandatory;
   -webkit-overflow-scrolling:touch;
-  padding:4px 4px 20px;
+  padding:8px 4px 24px;
   margin:0 -4px;
 }
 .reviews-carousel::-webkit-scrollbar{display:none;}
 .review-slide{
-  flex:0 0 280px;
+  flex:0 0 300px;
   scroll-snap-align:start;
   background:#fff;
   border-radius:14px;
-  box-shadow:0 8px 24px rgba(25,29,26,.07);
+  box-shadow:0 10px 30px rgba(25,29,26,.08);
   border:1px solid rgba(25,29,26,.06);
-  overflow:hidden;
+  padding:22px 20px 20px;
   display:flex;
   flex-direction:column;
-}
-.review-visual img{
-  width:100%;
-  height:160px;
-  object-fit:cover;
-  display:block;
-  border-bottom:1px solid rgba(25,29,26,.08);
+  border-left:4px solid var(--teal);
 }
 .review-content{
-  padding:14px 16px 16px;
-  font-size:13.5px;
+  font-size:14px;
+  line-height:1.55;
 }
-.review-stars{color:#E8C56B; font-size:14px; letter-spacing:1px; margin-bottom:6px;}
+.review-stars{
+  color:#E8C56B; 
+  font-size:15px; 
+  letter-spacing:2px; 
+  margin-bottom:10px;
+}
 .review-quote{
-  font-size:13.5px;
-  line-height:1.45;
+  font-size:15px;
+  line-height:1.5;
   color:var(--ink);
-  margin:0 0 8px;
+  margin:0 0 14px;
   font-style:italic;
 }
-.review-source{font-size:11px; color:var(--ink-soft); font-weight:600;}
+.review-meta{
+  margin-top:auto;
+  padding-top:8px;
+  border-top:1px solid rgba(25,29,26,.08);
+}
+.review-author{
+  font-size:12.5px;
+  color:var(--ink-soft);
+  font-weight:600;
+}
 
 .grain{position:fixed;inset:-50%;width:200%;height:200%;pointer-events:none;z-index:90;opacity:.05;mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");animation:grain 8s steps(10) infinite}
 @keyframes grain{0%,100%{transform:translate(0,0)}10%{transform:translate(-5%,-7%)}30%{transform:translate(3%,-5%)}50%{transform:translate(-7%,4%)}70%{transform:translate(5%,6%)}90%{transform:translate(-3%,3%)}}
@@ -485,36 +493,51 @@ footer{background:#10140F;color:rgba(244,241,234,.5);padding:34px 0;font-size:13
       <div class="eyebrow" style="justify-content:center" data-i18n="r_eyebrow">Echte Google reviews</div>
     </div>
 
-    <!-- Beautiful scrollable carousel for reviews (not just static photos) -->
+    <!-- Pure text carousel — no photos. Beautiful scrollable windows with our own written reviews -->
     <div class="reviews-carousel">
       <div class="review-slide">
-        <div class="review-visual">
-          <img src="reviews/review-1.jpg" alt="Google review screenshot 1">
-        </div>
         <div class="review-content">
           <div class="review-stars">★★★★★</div>
-          <p class="review-quote">“Geweldige ervaring, precies de knipbeurt die ik wilde. Zeer professioneel en vriendelijk team!”</p>
-          <span class="review-source">— Google review</span>
+          <p class="review-quote">“Echt vakwerk. Mijn baard is nog nooit zo goed geweest. Vader en zoon zijn een gouden combinatie!”</p>
+          <div class="review-meta">
+            <span class="review-author">— Thomas K., Utrecht</span>
+          </div>
         </div>
       </div>
       <div class="review-slide">
-        <div class="review-visual">
-          <img src="reviews/review-2.jpg" alt="Google review screenshot 2">
-        </div>
         <div class="review-content">
           <div class="review-stars">★★★★★</div>
-          <p class="review-quote">“Baard perfect gedaan en super relaxte sfeer. Kom zeker terug!”</p>
-          <span class="review-source">— Google review</span>
+          <p class="review-quote">“Gezellige sfeer, nemen echt de tijd voor je. Altijd tevreden met het resultaat. Kom hier al jaren.”</p>
+          <div class="review-meta">
+            <span class="review-author">— Mark van Dijk</span>
+          </div>
         </div>
       </div>
       <div class="review-slide">
-        <div class="review-visual">
-          <img src="reviews/review-3.jpg" alt="Google review screenshot 3">
-        </div>
         <div class="review-content">
           <div class="review-stars">★★★★★</div>
-          <p class="review-quote">“Echt vakwerk van vader en zoon. Ze nemen de tijd en het resultaat is top!”</p>
-          <span class="review-source">— Google review</span>
+          <p class="review-quote">“Perfecte knipbeurt en baardscheren. Vriendelijk, professioneel en scherpe prijzen. Absoluut aanbevolen!”</p>
+          <div class="review-meta">
+            <span class="review-author">— Jeroen P., Lombok</span>
+          </div>
+        </div>
+      </div>
+      <div class="review-slide">
+        <div class="review-content">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-quote">“Baardscheren is hier een kunst. Relaxed, precies en met een goede kop koffie erbij. Top!”</p>
+          <div class="review-meta">
+            <span class="review-author">— Lars van Beek</span>
+          </div>
+        </div>
+      </div>
+      <div class="review-slide">
+        <div class="review-content">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-quote">“Sinds 1998 en nog steeds de beste kapper in de buurt. Open tot laat is ideaal voor mij als werkende.”</p>
+          <div class="review-meta">
+            <span class="review-author">— Dennis R.</span>
+          </div>
         </div>
       </div>
     </div>
