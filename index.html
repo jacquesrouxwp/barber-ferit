@@ -78,7 +78,9 @@ section{padding:92px 0}
 /* HERITAGE */
 .story-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:60px;align-items:center}
 .story-card{background:var(--teal-deep);color:#EAF0EC;border-radius:var(--radius);padding:44px;position:relative;overflow:hidden}
-.story-card .year{font-family:'Fraunces',serif;font-size:80px;color:var(--brass);line-height:1}
+.story-card .year{position:relative}
+.story-card .year img{display:block;width:100%;height:120px;object-fit:cover;border-radius:8px}
+.story-card .year span{position:absolute;bottom:6px;right:8px;font-family:'Fraunces',serif;font-size:38px;color:var(--brass);line-height:1;text-shadow:0 1px 6px rgba(0,0,0,.35);pointer-events:none}
 .story-card h3{font-size:24px;margin:14px 0 10px;color:#fff}
 .story-card p{font-size:14.5px;color:rgba(234,240,236,.85)}
 .kaart{margin-top:24px;background:rgba(201,151,63,.14);border:1px dashed var(--brass);border-radius:12px;padding:16px 20px;font-size:14px;color:#F1E6CE}
@@ -135,7 +137,7 @@ footer{background:#10140F;color:rgba(244,241,234,.5);padding:34px 0;font-size:13
 @media(max-width:880px){.team-grid{grid-template-columns:1fr;gap:20px}}
 .team-card{background:#fff;border-radius:var(--radius);overflow:hidden;box-shadow:0 12px 34px rgba(25,29,26,.08);transition:.3s}
 .team-card:hover{transform:translateY(-4px);box-shadow:0 20px 50px rgba(25,29,26,.14)}
-.team-card img{width:100%;height:320px;object-fit:cover;display:block}
+.team-card img{width:100%;height:320px;object-fit:cover;display:block;object-position:center 68%}
 .team-info{padding:22px 24px 26px}
 .team-info h3{font-family:'Fraunces',serif;font-size:22px;margin-bottom:2px;color:var(--teal)}
 .team-info span{display:block;font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--brass);font-weight:800;margin-bottom:10px}
@@ -244,7 +246,10 @@ footer{background:#10140F;color:rgba(244,241,234,.5);padding:34px 0;font-size:13
       <p style="color:var(--ink-soft)" data-i18n="s_p2">Wij nemen de tijd voor je. Kom gezellig langs, drink een heerlijke bak koffie en stap de deur uit zoals jij het wilt.</p>
     </div>
     <div class="story-card">
-      <div class="year">1998</div>
+      <div class="year">
+        <img src="1998/1998.jpg" alt="Barber Ferit in 1998">
+        <span>1998</span>
+      </div>
       <h3 data-i18n="sc_h3">Vader &amp; zoon, één stoel tegelijk</h3>
       <p data-i18n="sc_p">Meer dan 25 jaar ervaring in knippen en baardscheren — doorgegeven van generatie op generatie.</p>
       <div class="kaart" data-i18n="sc_kaart">🎁 <b>Spaarkaart:</b> volle kaart = 50% korting op je knipbeurt óf een gratis gel, wax, crème of shampoo.</div>
@@ -260,19 +265,15 @@ footer{background:#10140F;color:rgba(244,241,234,.5);padding:34px 0;font-size:13
     </div>
     <div class="team-grid">
       <div class="team-card">
-        <img src="team/Ferit.jpg" alt="Ferit - Oprichter Barber Ferit">
+        <img src="team/Behran.jpg" alt="Behran">
         <div class="team-info">
-          <h3>Ferit</h3>
-          <span data-i18n="t_role1">Oprichter &amp; meesterkapper</span>
-          <p data-i18n="t_bio1">Sinds 1998 het hart van de zaak. Ervaren handen, warme gastvrijheid en altijd tijd voor een goed gesprek.</p>
+          <h3>Behran</h3>
         </div>
       </div>
       <div class="team-card">
-        <img src="team/Behran.jpg" alt="Behran - Tweede generatie bij Barber Ferit">
+        <img src="team/Ferit.jpg" alt="Ferit">
         <div class="team-info">
-          <h3>Behran</h3>
-          <span data-i18n="t_role2">Tweede generatie</span>
-          <p data-i18n="t_bio2">Brengt frisse energie en moderne technieken, terwijl hij de familietraditie en het vakmanschap eert.</p>
+          <h3>Ferit</h3>
         </div>
       </div>
     </div>
