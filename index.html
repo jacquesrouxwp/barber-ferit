@@ -49,6 +49,36 @@ nav{position:sticky;top:0;z-index:50;background:rgba(244,241,234,.93);backdrop-f
 .hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.65;animation:kb 22s ease-in-out infinite alternate}
 @keyframes kb{from{transform:scale(1)}to{transform:scale(1.08)}}
 .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(12,26,22,.55) 0%,rgba(12,26,22,.3) 55%,rgba(12,26,22,.08) 100%)}
+
+/* Mobile video carousel in hero (desktop uses static photo) */
+.desktop-only { display: block; }
+.mobile-only { display: none; }
+
+.hero-video-carousel {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.hero-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.9s ease;
+}
+
+.hero-video.active {
+  opacity: 1;
+}
+
+@media (max-width: 768px) {
+  .desktop-only { display: none; }
+  .mobile-only { display: block; }
+}
 .hero-in{position:relative;z-index:2;padding:118px 0 104px;max-width:680px;color:#F1EFE7}
 .hero .eyebrow{color:#E0B86A}.hero .eyebrow::before{background:#E0B86A}
 .hero h1{font-size:clamp(40px,5.6vw,68px);margin:18px 0 22px}
@@ -314,7 +344,15 @@ footer{background:#10140F;color:rgba(244,241,234,.5);padding:34px 0;font-size:13
 <div class="pole" aria-hidden="true"></div>
 
 <header class="hero">
-  <img class="hero-img" src="banner/hero.jpg" alt="Barber Ferit Utrecht - Interieur" onerror="this.style.display='none'">
+  <!-- Desktop: static photo -->
+  <img class="hero-img desktop-only" src="banner/hero.jpg" alt="Barber Ferit Utrecht - Interieur" onerror="this.style.display='none'">
+
+  <!-- Mobile only: 2-video auto carousel -->
+  <div class="hero-video-carousel mobile-only">
+    <video class="hero-video active" src="banner/mobile-hero-1.mp4" autoplay muted loop playsinline></video>
+    <video class="hero-video" src="banner/mobile-hero-2.mp4" autoplay muted loop playsinline></video>
+  </div>
+
   <div class="wrap"><div class="hero-in">
     <div class="eyebrow" data-i18n="h_eyebrow">Herenkapper · Utrecht Lombok · sinds 1998</div>
     <h1 data-i18n="h_h1">Vakwerk van <em>vader op zoon.</em></h1>
@@ -882,6 +920,44 @@ const mq=document.getElementById('marq'); mq.innerHTML+=mq.innerHTML;
   } else {
     window.addEventListener('load', runIntro, { once: true });
   }
+})();
+</script>
+
+<!-- Mobile hero video carousel (only on <=768px) -->
+<script>
+(function(){
+  const isMobile = window.matchMedia('(max-width: 768px)').matches;
+  if (!isMobile) return;
+
+  const carousel = document.querySelector('.hero-video-carousel');
+  if (!carousel) return;
+
+  const videos = carousel.querySelectorAll('.hero-video');
+  if (videos.length < 2) return;
+
+  let current = 0;
+
+  function show(index) {
+    videos.forEach((vid, i) => {
+      const isActive = i === index;
+      vid.classList.toggle('active', isActive);
+      if (isActive) {
+        // Ensure it plays (some mobile browsers need re-trigger)
+        vid.play().catch(() => {});
+      } else {
+        vid.pause();
+      }
+    });
+  }
+
+  // Start with first video
+  show(0);
+
+  // Auto-advance every 7 seconds
+  setInterval(() => {
+    current = (current + 1) % videos.length;
+    show(current);
+  }, 7000);
 })();
 </script>
 </body>
