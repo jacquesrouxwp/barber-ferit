@@ -123,7 +123,11 @@ section{padding:92px 0}
 footer{background:#10140F;color:rgba(244,241,234,.5);padding:34px 0;font-size:13.5px}
 .foot-in{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 
-.call-float{position:fixed;right:22px;bottom:22px;z-index:60;width:60px;height:60px;border-radius:50%;background:var(--teal);display:flex;align-items:center;justify-content:center;box-shadow:0 10px 30px rgba(31,75,67,.45);transition:.25s;color:#fff}
+.book-float{position:fixed;right:22px;bottom:22px;z-index:60;width:60px;height:60px;border-radius:50%;background:var(--teal);display:flex;align-items:center;justify-content:center;box-shadow:0 10px 30px rgba(31,75,67,.45);transition:.25s;color:#fff}
+.book-float:hover{transform:scale(1.08)}
+.book-float svg{width:26px;height:26px}
+
+.call-float{position:fixed;right:22px;bottom:98px;z-index:60;width:60px;height:60px;border-radius:50%;background:var(--teal);display:flex;align-items:center;justify-content:center;box-shadow:0 10px 30px rgba(31,75,67,.45);transition:.25s;color:#fff}
 .call-float:hover{transform:scale(1.08)}
 .call-float svg{width:26px;height:26px}
 
@@ -296,6 +300,9 @@ footer{background:#10140F;color:rgba(244,241,234,.5);padding:34px 0;font-size:13
   </div>
 </footer>
 
+<a class="book-float" href="https://dashboard.knipklok.nl/shop/102/appointment/barber/choose?redirect=https%3A%2F%2Fknipklok.nl%2Fshops%2Fbarber-ferit" target="_blank" rel="noopener" aria-label="Boek afspraak" title="Boek afspraak" data-i18n-aria="book_apt">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 4h-1V2h-2v2H8V2H6v2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 16H5V10h14v10ZM5 8V6h14v2H5Z"/></svg>
+</a>
 <a class="call-float" href="tel:0302990539" aria-label="Bellen">
   <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.3 0 .7-.2 1l-2.3 2.2Z"/></svg>
 </a>
@@ -330,6 +337,7 @@ nl: {
   c_d1:"Maandag", c_d2:"Dinsdag", c_d3:"Woensdag", c_d4:"Donderdag", c_d5:"Vrijdag", c_d6:"Zaterdag", c_d7:"Zondag", c_d7v:"Gesloten",
   c_note:"* Vrijdagtijd bevestigen — huidige site toont 20:00 én 22:00.",
   cc_h3:"Afspraak maken?", cc_p:"Boek online via Knipklok, bel even — of loop gewoon binnen.", cc_book:"Boek online",
+  book_apt:"Boek afspraak",
   f1:"© 2026 Barber Ferit · Herenkapper sinds 1998 · Utrecht",
   f2:"Laan van Nieuw Guinea 105-A, Lombok · Vader &amp; zoon"
 },
@@ -361,6 +369,7 @@ en: {
   c_d1:"Monday", c_d2:"Tuesday", c_d3:"Wednesday", c_d4:"Thursday", c_d5:"Friday", c_d6:"Saturday", c_d7:"Sunday", c_d7v:"Closed",
   c_note:"* Friday hours to be confirmed — current site shows both 8 pm and 10 pm.",
   cc_h3:"Book an appointment?", cc_p:"Book online via Knipklok, give us a call — or just walk in.", cc_book:"Book online",
+  book_apt:"Book appointment",
   f1:"© 2026 Barber Ferit · Men's barber since 1998 · Utrecht",
   f2:"Laan van Nieuw Guinea 105-A, Lombok · Father &amp; son"
 },
@@ -392,6 +401,7 @@ tr: {
   c_d1:"Pazartesi", c_d2:"Salı", c_d3:"Çarşamba", c_d4:"Perşembe", c_d5:"Cuma", c_d6:"Cumartesi", c_d7:"Pazar", c_d7v:"Kapalı",
   c_note:"* Cuma saatleri teyit edilecek — mevcut site hem 20:00 hem 22:00 gösteriyor.",
   cc_h3:"Randevu mu lazım?", cc_p:"Knipklok ile online randevu al, ara — ya da kapıdan gir.", cc_book:"Online randevu",
+  book_apt:"Randevu al",
   f1:"© 2026 Barber Ferit · 1998'den beri erkek kuaförü · Utrecht",
   f2:"Laan van Nieuw Guinea 105-A, Lombok · Baba &amp; oğul"
 }
@@ -400,6 +410,7 @@ tr: {
 function setLang(l){
   const d=I18N[l];
   document.querySelectorAll('[data-i18n]').forEach(el=>{const k=el.getAttribute('data-i18n'); if(d[k]!==undefined) el.innerHTML=d[k];});
+  document.querySelectorAll('[data-i18n-aria]').forEach(el=>{const k=el.getAttribute('data-i18n-aria'); if(d[k]!==undefined){ el.setAttribute('aria-label',d[k]); el.setAttribute('title',d[k]); }});
   document.documentElement.lang=l;
   document.querySelectorAll('#langSwitch button').forEach(b=>b.classList.toggle('on',b.dataset.lang===l));
   try{localStorage.setItem('bf-lang',l);}catch(e){}
