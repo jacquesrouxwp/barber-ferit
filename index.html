@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Barber Ferit — Herenkapper sinds 1998 | Utrecht Lombok</title>
+<meta name="description" content="Barber Ferit in Utrecht: familiebedrijf van vader en zoon sinds 1998. Knippen, baardscheren, open op maandag, donderdag tot 22:00. Boek online via Knipklok.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F4F1EA; --cream:#E9E4D6; --ink:#191D1A; --ink-soft:#56605A;
+  --teal:#1F4B43; --teal-deep:#143832; --brass:#C9973F; --radius:14px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Manrope',sans-serif;background:var(--paper);color:var(--ink);line-height:1.6}
+h1,h2,h3,.serif{font-family:'Fraunces',serif;font-weight:600;line-height:1.1}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+.eyebrow{display:flex;align-items:center;gap:12px;font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--brass);font-weight:800}
+.eyebrow::before{content:"";width:34px;height:2px;background:var(--brass)}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 26px;border-radius:999px;font-weight:800;font-size:15px;transition:.25s;cursor:pointer;border:none}
+.btn-cta{background:var(--teal);color:#fff;box-shadow:0 8px 24px rgba(31,75,67,.32)}
+.btn-cta:hover{background:var(--teal-deep);transform:translateY(-2px)}
+.btn-ghost{background:transparent;border:1.5px solid rgba(25,29,26,.3)}
+.btn-ghost:hover{border-color:var(--teal);color:var(--teal)}
+.ic20{width:20px;height:20px;flex:0 0 auto}
+
+.pole{height:6px;background:repeating-linear-gradient(135deg,#9E2B25 0 14px,#F4F1EA 14px 28px,#274B6D 28px 42px,#F4F1EA 42px 56px);background-size:200% 100%;animation:pole 14s linear infinite}
+@keyframes pole{from{background-position:0 0}to{background-position:200% 0}}
+
+nav{position:sticky;top:0;z-index:50;background:rgba(244,241,234,.93);backdrop-filter:blur(12px);border-bottom:1px solid rgba(25,29,26,.08)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;height:72px;gap:14px}
+.logo{font-family:'Fraunces',serif;font-size:21px;font-weight:700;white-space:nowrap}
+.logo em{color:var(--teal);font-style:italic}
+.logo small{font-size:11px;letter-spacing:.18em;color:var(--brass);display:block;font-family:'Manrope',sans-serif;font-weight:800;margin-top:-3px}
+.nav-links{display:flex;gap:24px;font-size:14px;font-weight:700;color:var(--ink-soft)}
+.nav-links a:hover{color:var(--teal)}
+.nav-cta{display:flex;align-items:center;gap:14px}
+.lang{display:flex;gap:4px;background:var(--cream);border-radius:999px;padding:4px}
+.lang button{border:none;background:transparent;font-family:'Manrope',sans-serif;font-weight:800;font-size:12.5px;padding:6px 11px;border-radius:999px;cursor:pointer;color:var(--ink-soft);transition:.2s}
+.lang button.on{background:var(--teal);color:#fff}
+@media(max-width:1020px){.nav-links{display:none}}
+@media(max-width:560px){.nav-cta .btn-cta{display:none}}
+
+.hero{position:relative;overflow:hidden;background:linear-gradient(140deg,#22332D 0%,#143832 55%,#0E2A25 100%)}
+.hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.35;animation:kb 22s ease-in-out infinite alternate}
+@keyframes kb{from{transform:scale(1)}to{transform:scale(1.08)}}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(12,26,22,.85) 0%,rgba(12,26,22,.5) 55%,rgba(12,26,22,.15) 100%)}
+.hero-in{position:relative;z-index:2;padding:118px 0 104px;max-width:680px;color:#F1EFE7}
+.hero .eyebrow{color:#E0B86A}.hero .eyebrow::before{background:#E0B86A}
+.hero h1{font-size:clamp(40px,5.6vw,68px);margin:18px 0 22px}
+.hero h1 em{font-style:italic;color:#E0B86A}
+.hero h1 .w{display:inline-block}
+.hero p{font-size:17px;max-width:520px;color:rgba(241,239,231,.88);margin-bottom:34px}
+.hero-rating{display:flex;align-items:center;gap:10px;margin-top:34px;font-size:14px;color:rgba(241,239,231,.92)}
+.stars{color:#E8C56B;letter-spacing:2px;font-size:15px}
+
+.marq{overflow:hidden;background:var(--ink);color:#CDA45F;padding:13px 0;font-size:12.5px;letter-spacing:.24em;text-transform:uppercase;font-weight:800}
+.marq-in{display:flex;gap:56px;width:max-content;animation:marq 26s linear infinite}
+.marq span{white-space:nowrap}
+@keyframes marq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+.usp{background:var(--cream)}
+.usp-in{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;padding:46px 0;text-align:center}
+.usp b{display:block;font-family:'Fraunces',serif;font-size:38px;font-weight:600;color:var(--teal);line-height:1}
+.usp small{display:block;margin-top:8px;font-size:13px;color:var(--ink-soft);font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+@media(max-width:820px){.usp-in{grid-template-columns:repeat(2,1fr)}}
+
+section{padding:92px 0}
+.sec-head{max-width:620px;margin-bottom:54px}
+.sec-head h2{font-size:clamp(32px,4.4vw,48px);margin-top:16px}
+.sec-head h2 em{font-style:italic;color:var(--teal)}
+.sec-head p{color:var(--ink-soft);margin-top:14px}
+
+/* HERITAGE */
+.story-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:60px;align-items:center}
+.story-card{background:var(--teal-deep);color:#EAF0EC;border-radius:var(--radius);padding:44px;position:relative;overflow:hidden}
+.story-card .year{font-family:'Fraunces',serif;font-size:80px;color:var(--brass);line-height:1}
+.story-card h3{font-size:24px;margin:14px 0 10px;color:#fff}
+.story-card p{font-size:14.5px;color:rgba(234,240,236,.85)}
+.kaart{margin-top:24px;background:rgba(201,151,63,.14);border:1px dashed var(--brass);border-radius:12px;padding:16px 20px;font-size:14px;color:#F1E6CE}
+@media(max-width:880px){.story-grid{grid-template-columns:1fr}}
+
+/* PRICES featured */
+.prijs-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-bottom:46px}
+.prijs{background:#fff;border-radius:var(--radius);padding:34px;box-shadow:0 12px 34px rgba(25,29,26,.08);transition:.3s;border-top:4px solid var(--teal)}
+.prijs:hover{transform:translateY(-5px);box-shadow:0 20px 50px rgba(25,29,26,.14)}
+.prijs h3{font-size:21px;margin-bottom:6px}
+.prijs .pp{font-family:'Fraunces',serif;font-size:34px;color:var(--teal);margin:10px 0 12px}
+.prijs p{font-size:14px;color:var(--ink-soft)}
+.prijs.feat{border-top-color:var(--brass);position:relative}
+.prijs.feat::after{content:"populair";position:absolute;top:14px;right:14px;background:var(--brass);color:#fff;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:800;padding:5px 10px;border-radius:999px}
+@media(max-width:880px){.prijs-grid{grid-template-columns:1fr}}
+
+/* full menu */
+.menu-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px 56px}
+.menu-item{display:flex;justify-content:space-between;align-items:baseline;gap:18px;padding:15px 0;border-bottom:1px solid rgba(25,29,26,.09)}
+.menu-item .nm{font-weight:700;font-size:15px}
+.menu-price{white-space:nowrap;font-family:'Fraunces',serif;font-size:19px;color:var(--teal)}
+@media(max-width:880px){.menu-grid{grid-template-columns:1fr}}
+
+.band{background:linear-gradient(180deg,var(--paper) 0%,var(--cream) 100%);text-align:center}
+.band .num{font-family:'Fraunces',serif;font-size:76px;color:var(--teal)}
+.band .lbl{letter-spacing:.18em;font-size:12px;text-transform:uppercase;color:var(--ink-soft);font-weight:800;margin-top:6px}
+.claims{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:34px}
+.claims span{background:#fff;border-radius:999px;padding:10px 20px;font-size:13.5px;color:var(--ink-soft);box-shadow:0 8px 24px rgba(25,29,26,.07)}
+
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
+.hours{margin-top:26px}
+.hours div{display:flex;justify-content:space-between;padding:11px 0;border-bottom:1px solid rgba(25,29,26,.09);font-size:15px}
+.hours span:last-child{color:var(--ink-soft)}
+.hours .late span:last-child{color:var(--teal);font-weight:700}
+.contact-card{background:var(--teal-deep);color:#EAF0EC;border-radius:var(--radius);padding:42px}
+.contact-card h3{font-size:28px;margin-bottom:12px}
+.contact-card p{color:rgba(234,240,236,.82);font-size:15px;margin-bottom:8px}
+.contact-card .addr{font-family:'Fraunces',serif;font-size:19px;color:#fff;margin:18px 0 26px}
+.cc-note{font-size:13px;color:rgba(234,240,236,.65);margin-top:14px}
+@media(max-width:880px){.contact-grid{grid-template-columns:1fr}}
+
+footer{background:#10140F;color:rgba(244,241,234,.5);padding:34px 0;font-size:13.5px}
+.foot-in{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+
+.call-float{position:fixed;right:22px;bottom:22px;z-index:60;width:60px;height:60px;border-radius:50%;background:var(--teal);display:flex;align-items:center;justify-content:center;box-shadow:0 10px 30px rgba(31,75,67,.45);transition:.25s;color:#fff}
+.call-float:hover{transform:scale(1.08)}
+.call-float svg{width:26px;height:26px}
+
+.grain{position:fixed;inset:-50%;width:200%;height:200%;pointer-events:none;z-index:90;opacity:.05;mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");animation:grain 8s steps(10) infinite}
+@keyframes grain{0%,100%{transform:translate(0,0)}10%{transform:translate(-5%,-7%)}30%{transform:translate(3%,-5%)}50%{transform:translate(-7%,4%)}70%{transform:translate(5%,6%)}90%{transform:translate(-3%,3%)}}
+@media (prefers-reduced-motion: reduce){
+  .grain{display:none}.hero-img{animation:none}.marq-in{animation:none}.pole{animation:none}
+}
+</style>
+</head>
+<body style="background:#F4F1EA;color:#191D1A">
+<div class="grain" aria-hidden="true"></div>
+
+<nav>
+  <div class="wrap nav-in">
+    <div class="logo">Barber <em>Ferit</em><small>SINDS 1998</small></div>
+    <div class="nav-links">
+      <a href="#verhaal" data-i18n="n1">Ons verhaal</a>
+      <a href="#prijzen" data-i18n="n2">Prijslijst</a>
+      <a href="#reviews" data-i18n="n3">Reviews</a>
+      <a href="#contact" data-i18n="n4">Contact</a>
+    </div>
+    <div class="nav-cta">
+      <div class="lang" id="langSwitch"><button data-lang="nl" class="on">NL</button><button data-lang="en">EN</button><button data-lang="tr">TR</button></div>
+      <a class="btn btn-cta" href="https://knipklok.nl/kapperszaak/barber-ferit" target="_blank" rel="noopener">
+        <svg class="ic20" viewBox="0 0 24 24" fill="currentColor"><path d="M19 4h-1V2h-2v2H8V2H6v2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 16H5V10h14v10ZM5 8V6h14v2H5Z"/></svg>
+        <span data-i18n="n_book">Boek online</span>
+      </a>
+    </div>
+  </div>
+</nav>
+<div class="pole" aria-hidden="true"></div>
+
+<header class="hero">
+  <img class="hero-img" src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?q=80&w=1800&auto=format&fit=crop" alt="Barber Ferit Utrecht" onerror="this.style.display='none'">
+  <div class="wrap"><div class="hero-in">
+    <div class="eyebrow" data-i18n="h_eyebrow">Herenkapper · Utrecht Lombok · sinds 1998</div>
+    <h1 data-i18n="h_h1">Vakwerk van <em>vader op zoon.</em></h1>
+    <p data-i18n="h_p">Al meer dan 25 jaar hét adres in Lombok voor knippen en baardscheren. Familiebedrijf, eerlijke prijzen, en een heerlijke bak koffie terwijl je wacht.</p>
+    <div style="display:flex;gap:14px;flex-wrap:wrap">
+      <a class="btn btn-cta" href="https://knipklok.nl/kapperszaak/barber-ferit" target="_blank" rel="noopener">
+        <svg class="ic20" viewBox="0 0 24 24" fill="currentColor"><path d="M19 4h-1V2h-2v2H8V2H6v2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 16H5V10h14v10ZM5 8V6h14v2H5Z"/></svg>
+        <span data-i18n="h_btn1">Boek online via Knipklok</span>
+      </a>
+      <a class="btn btn-ghost" href="tel:0302990539" style="color:#F1EFE7;border-color:rgba(241,239,231,.5)">
+        <span dir="ltr" data-i18n="h_btn2">Bel 030 299 0539</span>
+      </a>
+    </div>
+    <div class="hero-rating"><span class="stars">★★★★★</span> <b>4,7</b> <span data-i18n="h_rating">· 219 Google reviews</span></div>
+  </div></div>
+</header>
+<div class="pole" aria-hidden="true"></div>
+
+<div class="marq" aria-hidden="true"><div class="marq-in" id="marq">
+  <span>Sinds 1998</span><span>✂</span><span>Vader &amp; zoon</span><span>✂</span><span>Knippen</span><span>✂</span><span>Baardscheren</span><span>✂</span><span>Open op maandag</span><span>✂</span><span>Donderdag tot 22:00</span><span>✂</span>
+</div></div>
+
+<div class="usp"><div class="wrap usp-in">
+  <div><b data-count="4.7" data-dec="1">0</b><small data-i18n="u1">op Google</small></div>
+  <div><b data-count="219">0</b><small data-i18n="u2">reviews</small></div>
+  <div><b>1998</b><small data-i18n="u3">opgericht — 25+ jaar vakwerk</small></div>
+  <div><b>22:00</b><small data-i18n="u4">donderdag open tot laat</small></div>
+</div></div>
+
+<section id="verhaal">
+  <div class="wrap story-grid">
+    <div>
+      <div class="eyebrow" data-i18n="s_eyebrow">Ons verhaal</div>
+      <h2 style="font-size:clamp(32px,4vw,46px);margin:16px 0 14px" data-i18n="s_h2">Een familiebedrijf, <em style="color:var(--teal)">letterlijk.</em></h2>
+      <p style="color:var(--ink-soft);margin-bottom:14px" data-i18n="s_p1">Opgericht in 1998 als herenkapsalon aan de JP Coenstraat, sinds 2005 op de Laan van Nieuw Guinea. Ons team? Vader en zoon — creativiteit, klantvriendelijkheid en kwaliteit zit bij ons in de familie.</p>
+      <p style="color:var(--ink-soft)" data-i18n="s_p2">Wij nemen de tijd voor je. Kom gezellig langs, drink een heerlijke bak koffie en stap de deur uit zoals jij het wilt.</p>
+    </div>
+    <div class="story-card">
+      <div class="year">1998</div>
+      <h3 data-i18n="sc_h3">Vader &amp; zoon, één stoel tegelijk</h3>
+      <p data-i18n="sc_p">Meer dan 25 jaar ervaring in knippen en baardscheren — doorgegeven van generatie op generatie.</p>
+      <div class="kaart" data-i18n="sc_kaart">🎁 <b>Spaarkaart:</b> volle kaart = 50% korting op je knipbeurt óf een gratis gel, wax, crème of shampoo.</div>
+    </div>
+  </div>
+</section>
+
+<section id="prijzen" style="background:var(--cream)">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow" data-i18n="p_eyebrow">Prijslijst</div>
+      <h2 data-i18n="p_h2">Eerlijk werk, <em>eerlijke prijzen.</em></h2>
+    </div>
+    <div class="prijs-grid">
+      <div class="prijs">
+        <h3 data-i18n="pr1t">Knippen in model</h3>
+        <div class="pp">€30</div>
+        <p data-i18n="pr1">Klassiek of modern — altijd in model, inclusief advies.</p>
+      </div>
+      <div class="prijs feat">
+        <h3 data-i18n="pr2t">Knippen &amp; baardscheren</h3>
+        <div class="pp">€40</div>
+        <p data-i18n="pr2">Haar én baard strak in één bezoek.</p>
+      </div>
+      <div class="prijs">
+        <h3 data-i18n="pr3t">Wassen, knippen &amp; baard</h3>
+        <div class="pp">€45</div>
+        <p data-i18n="pr3">De complete behandeling van A tot Z.</p>
+      </div>
+    </div>
+    <div class="menu-grid">
+      <div class="menu-item"><span class="nm" data-i18n="m1">Knippen, wassen</span><span class="menu-price">€32,25</span></div>
+      <div class="menu-item"><span class="nm" data-i18n="m2">Baardscheren met nekhaar</span><span class="menu-price">€20</span></div>
+      <div class="menu-item"><span class="nm" data-i18n="m3">Hoofd scheren / tondeuse (1 stand)</span><span class="menu-price">€20</span></div>
+      <div class="menu-item"><span class="nm" data-i18n="m4">Tondeuse of zijkanten + baardscheren</span><span class="menu-price">€35</span></div>
+      <div class="menu-item"><span class="nm" data-i18n="m5">Alleen de zijkanten opscheren</span><span class="menu-price">€25</span></div>
+      <div class="menu-item"><span class="nm" data-i18n="m6">Kinderen t/m 11 jaar</span><span class="menu-price">€25</span></div>
+      <div class="menu-item"><span class="nm" data-i18n="m7">Heren 67+</span><span class="menu-price">€25</span></div>
+    </div>
+    <p style="font-size:13.5px;color:var(--ink-soft);margin-top:26px" data-i18n="p_note">🎁 Spaarkaart: bij een volle kaart 50% korting op alle knipbehandelingen óf een gratis product.</p>
+  </div>
+</section>
+
+<section class="band" id="reviews">
+  <div class="wrap">
+    <div class="num" data-count="4.7" data-dec="1">0</div>
+    <div class="stars" style="font-size:20px">★★★★★</div>
+    <div class="lbl" data-i18n="b_lbl">Gemiddelde beoordeling op Google · 219 reviews</div>
+    <div class="claims">
+      <span data-i18n="cl1">✂ Sinds 1998 — ruim 25 jaar vakwerk</span>
+      <span data-i18n="cl2">👨‍👦 Familiebedrijf: vader &amp; zoon</span>
+      <span data-i18n="cl3">📅 Ook op maandag open</span>
+      <span data-i18n="cl4">☕ Koffie staat klaar</span>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap contact-grid">
+    <div>
+      <div class="eyebrow" data-i18n="c_eyebrow">Kom langs</div>
+      <h2 style="font-size:clamp(32px,4vw,46px);margin:16px 0" data-i18n="c_h2">Laan van Nieuw Guinea, <em style="color:var(--teal)">Lombok.</em></h2>
+      <p style="color:var(--ink-soft)" data-i18n="c_p">Open wanneer jij vrij bent — ook op maandag, en donderdag tot 's avonds laat.</p>
+      <div class="hours">
+        <div><span data-i18n="c_d1">Maandag</span><span>12:30 – 19:30</span></div>
+        <div><span data-i18n="c_d2">Dinsdag</span><span>12:30 – 19:30</span></div>
+        <div><span data-i18n="c_d3">Woensdag</span><span>10:30 – 19:00</span></div>
+        <div class="late"><span data-i18n="c_d4">Donderdag</span><span>11:30 – 22:00</span></div>
+        <div><span data-i18n="c_d5">Vrijdag</span><span>10:30 – 20:00 *</span></div>
+        <div><span data-i18n="c_d6">Zaterdag</span><span>10:30 – 18:00</span></div>
+        <div><span data-i18n="c_d7">Zondag</span><span data-i18n="c_d7v">Gesloten</span></div>
+      </div>
+      <p style="font-size:13px;color:var(--ink-soft);margin-top:14px" data-i18n="c_note">* Vrijdagtijd bevestigen — huidige site toont 20:00 én 22:00. <!-- TODO --></p>
+    </div>
+    <div class="contact-card">
+      <h3 class="serif" data-i18n="cc_h3">Afspraak maken?</h3>
+      <p data-i18n="cc_p">Boek online via Knipklok, bel even — of loop gewoon binnen.</p>
+      <div class="addr">Laan van Nieuw Guinea 105-A<br>3531 JG Utrecht</div>
+      <a class="btn btn-cta" href="https://knipklok.nl/kapperszaak/barber-ferit" target="_blank" rel="noopener" style="background:#fff;color:var(--teal-deep)">
+        <svg class="ic20" viewBox="0 0 24 24" fill="currentColor"><path d="M19 4h-1V2h-2v2H8V2H6v2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 16H5V10h14v10ZM5 8V6h14v2H5Z"/></svg>
+        <span data-i18n="cc_book">Boek online</span>
+      </a>
+      <div style="margin-top:14px">
+        <a class="btn btn-ghost" href="tel:0302990539" style="color:#EAF0EC;border-color:rgba(234,240,236,.4);padding:11px 20px;font-size:14px"><span dir="ltr">030 299 0539</span></a>
+      </div>
+      <div class="cc-note">info@barberferit.nl</div>
+    </div>
+  </div>
+</section>
+
+<div class="pole" aria-hidden="true"></div>
+<footer>
+  <div class="wrap foot-in">
+    <div data-i18n="f1">© 2026 Barber Ferit · Herenkapper sinds 1998 · Utrecht</div>
+    <div data-i18n="f2">Laan van Nieuw Guinea 105-A, Lombok · Vader &amp; zoon</div>
+  </div>
+</footer>
+
+<a class="call-float" href="tel:0302990539" aria-label="Bellen">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.3 0 .7-.2 1l-2.3 2.2Z"/></svg>
+</a>
+
+<script>
+const I18N = {
+nl: {
+  n1:"Ons verhaal", n2:"Prijslijst", n3:"Reviews", n4:"Contact", n_book:"Boek online",
+  h_eyebrow:"Herenkapper · Utrecht Lombok · sinds 1998",
+  h_h1:"Vakwerk van <em>vader op zoon.</em>",
+  h_p:"Al meer dan 25 jaar hét adres in Lombok voor knippen en baardscheren. Familiebedrijf, eerlijke prijzen, en een heerlijke bak koffie terwijl je wacht.",
+  h_btn1:"Boek online via Knipklok", h_btn2:"Bel 030 299 0539", h_rating:"· 219 Google reviews",
+  u1:"op Google", u2:"reviews", u3:"opgericht — 25+ jaar vakwerk", u4:"donderdag open tot laat",
+  s_eyebrow:"Ons verhaal", s_h2:"Een familiebedrijf, <em style=\"color:var(--teal)\">letterlijk.</em>",
+  s_p1:"Opgericht in 1998 als herenkapsalon aan de JP Coenstraat, sinds 2005 op de Laan van Nieuw Guinea. Ons team? Vader en zoon — creativiteit, klantvriendelijkheid en kwaliteit zit bij ons in de familie.",
+  s_p2:"Wij nemen de tijd voor je. Kom gezellig langs, drink een heerlijke bak koffie en stap de deur uit zoals jij het wilt.",
+  sc_h3:"Vader &amp; zoon, één stoel tegelijk",
+  sc_p:"Meer dan 25 jaar ervaring in knippen en baardscheren — doorgegeven van generatie op generatie.",
+  sc_kaart:"🎁 <b>Spaarkaart:</b> volle kaart = 50% korting op je knipbeurt óf een gratis gel, wax, crème of shampoo.",
+  p_eyebrow:"Prijslijst", p_h2:"Eerlijk werk, <em>eerlijke prijzen.</em>",
+  pr1t:"Knippen in model", pr1:"Klassiek of modern — altijd in model, inclusief advies.",
+  pr2t:"Knippen &amp; baardscheren", pr2:"Haar én baard strak in één bezoek.",
+  pr3t:"Wassen, knippen &amp; baard", pr3:"De complete behandeling van A tot Z.",
+  m1:"Knippen, wassen", m2:"Baardscheren met nekhaar", m3:"Hoofd scheren / tondeuse (1 stand)",
+  m4:"Tondeuse of zijkanten + baardscheren", m5:"Alleen de zijkanten opscheren", m6:"Kinderen t/m 11 jaar", m7:"Heren 67+",
+  p_note:"🎁 Spaarkaart: bij een volle kaart 50% korting op alle knipbehandelingen óf een gratis product.",
+  b_lbl:"Gemiddelde beoordeling op Google · 219 reviews",
+  cl1:"✂ Sinds 1998 — ruim 25 jaar vakwerk", cl2:"👨‍👦 Familiebedrijf: vader &amp; zoon",
+  cl3:"📅 Ook op maandag open", cl4:"☕ Koffie staat klaar",
+  c_eyebrow:"Kom langs", c_h2:"Laan van Nieuw Guinea, <em style=\"color:var(--teal)\">Lombok.</em>",
+  c_p:"Open wanneer jij vrij bent — ook op maandag, en donderdag tot 's avonds laat.",
+  c_d1:"Maandag", c_d2:"Dinsdag", c_d3:"Woensdag", c_d4:"Donderdag", c_d5:"Vrijdag", c_d6:"Zaterdag", c_d7:"Zondag", c_d7v:"Gesloten",
+  c_note:"* Vrijdagtijd bevestigen — huidige site toont 20:00 én 22:00.",
+  cc_h3:"Afspraak maken?", cc_p:"Boek online via Knipklok, bel even — of loop gewoon binnen.", cc_book:"Boek online",
+  f1:"© 2026 Barber Ferit · Herenkapper sinds 1998 · Utrecht",
+  f2:"Laan van Nieuw Guinea 105-A, Lombok · Vader &amp; zoon"
+},
+en: {
+  n1:"Our story", n2:"Price list", n3:"Reviews", n4:"Contact", n_book:"Book online",
+  h_eyebrow:"Men's barber · Utrecht Lombok · since 1998",
+  h_h1:"Craftsmanship, <em>father to son.</em>",
+  h_p:"For over 25 years the go-to address in Lombok for haircuts and beard shaves. Family business, honest prices, and a great cup of coffee while you wait.",
+  h_btn1:"Book online via Knipklok", h_btn2:"Call 030 299 0539", h_rating:"· 219 Google reviews",
+  u1:"on Google", u2:"reviews", u3:"founded — 25+ years of craft", u4:"open late on Thursdays",
+  s_eyebrow:"Our story", s_h2:"A family business, <em style=\"color:var(--teal)\">literally.</em>",
+  s_p1:"Founded in 1998 as a men's salon on JP Coenstraat, since 2005 on Laan van Nieuw Guinea. Our team? Father and son — creativity, friendliness and quality run in the family.",
+  s_p2:"We take our time for you. Come by, enjoy a great cup of coffee, and walk out exactly how you want to look.",
+  sc_h3:"Father &amp; son, one chair at a time",
+  sc_p:"Over 25 years of experience in cutting and beard shaving — passed down from generation to generation.",
+  sc_kaart:"🎁 <b>Loyalty card:</b> full card = 50% off your haircut or a free gel, wax, cream or shampoo.",
+  p_eyebrow:"Price list", p_h2:"Honest work, <em>honest prices.</em>",
+  pr1t:"Haircut, styled", pr1:"Classic or modern — always styled, advice included.",
+  pr2t:"Haircut &amp; beard shave", pr2:"Hair and beard sharp in one visit.",
+  pr3t:"Wash, cut &amp; beard", pr3:"The complete treatment from A to Z.",
+  m1:"Haircut + wash", m2:"Beard shave incl. neckline", m3:"Head shave / clippers (one guard)",
+  m4:"Clippers or sides + beard shave", m5:"Sides only", m6:"Children up to 11", m7:"Gentlemen 67+",
+  p_note:"🎁 Loyalty card: a full card gets you 50% off any haircut or a free product.",
+  b_lbl:"Average rating on Google · 219 reviews",
+  cl1:"✂ Since 1998 — 25+ years of craft", cl2:"👨‍👦 Family business: father &amp; son",
+  cl3:"📅 Open on Mondays too", cl4:"☕ Coffee's ready",
+  c_eyebrow:"Come by", c_h2:"Laan van Nieuw Guinea, <em style=\"color:var(--teal)\">Lombok.</em>",
+  c_p:"Open when you're free — Mondays too, and late on Thursdays.",
+  c_d1:"Monday", c_d2:"Tuesday", c_d3:"Wednesday", c_d4:"Thursday", c_d5:"Friday", c_d6:"Saturday", c_d7:"Sunday", c_d7v:"Closed",
+  c_note:"* Friday hours to be confirmed — current site shows both 8 pm and 10 pm.",
+  cc_h3:"Book an appointment?", cc_p:"Book online via Knipklok, give us a call — or just walk in.", cc_book:"Book online",
+  f1:"© 2026 Barber Ferit · Men's barber since 1998 · Utrecht",
+  f2:"Laan van Nieuw Guinea 105-A, Lombok · Father &amp; son"
+},
+tr: {
+  n1:"Hikâyemiz", n2:"Fiyat listesi", n3:"Yorumlar", n4:"İletişim", n_book:"Online randevu",
+  h_eyebrow:"Erkek kuaförü · Utrecht Lombok · 1998'den beri",
+  h_h1:"Babadan oğula <em>ustalık.</em>",
+  h_p:"25 yılı aşkın süredir Lombok'ta saç ve sakalın adresi. Aile işletmesi, dürüst fiyatlar — ve beklerken nefis bir kahve.",
+  h_btn1:"Knipklok ile online randevu", h_btn2:"Ara: 030 299 0539", h_rating:"· 219 Google yorumu",
+  u1:"Google puanı", u2:"yorum", u3:"kuruluş — 25+ yıl ustalık", u4:"perşembe geç saate kadar",
+  s_eyebrow:"Hikâyemiz", s_h2:"Aile işletmesi — <em style=\"color:var(--teal)\">kelimenin tam anlamıyla.</em>",
+  s_p1:"1998'de JP Coenstraat'ta erkek kuaförü olarak kurulduk, 2005'ten beri Laan van Nieuw Guinea'dayız. Ekibimiz? Baba ve oğul — yaratıcılık, güler yüz ve kalite ailemizde var.",
+  s_p2:"Senin için zaman ayırırız. Gel, nefis bir kahve iç ve tam istediğin gibi çık.",
+  sc_h3:"Baba &amp; oğul, her seferinde tek koltuk",
+  sc_p:"Saç kesimi ve sakal tıraşında 25 yılı aşkın deneyim — nesilden nesile aktarıldı.",
+  sc_kaart:"🎁 <b>Sadakat kartı:</b> dolu kart = kesimde %50 indirim veya ücretsiz jöle, wax, krem ya da şampuan.",
+  p_eyebrow:"Fiyat listesi", p_h2:"Dürüst iş, <em>dürüst fiyat.</em>",
+  pr1t:"Model saç kesimi", pr1:"Klasik ya da modern — her zaman modelli, tavsiye dahil.",
+  pr2t:"Kesim &amp; sakal tıraşı", pr2:"Saç ve sakal tek seansta.",
+  pr3t:"Yıkama, kesim &amp; sakal", pr3:"A'dan Z'ye komple bakım.",
+  m1:"Kesim + yıkama", m2:"Ense dahil sakal tıraşı", m3:"Kafa tıraşı / makine (tek numara)",
+  m4:"Makine veya yanlar + sakal", m5:"Sadece yanlar", m6:"11 yaşa kadar çocuk", m7:"67+ beyler",
+  p_note:"🎁 Sadakat kartı: dolu kartla tüm kesimlerde %50 indirim veya ücretsiz ürün.",
+  b_lbl:"Google ortalama puanı · 219 yorum",
+  cl1:"✂ 1998'den beri — 25+ yıl ustalık", cl2:"👨‍👦 Aile işletmesi: baba &amp; oğul",
+  cl3:"📅 Pazartesi de açık", cl4:"☕ Kahve hazır",
+  c_eyebrow:"Uğra", c_h2:"Laan van Nieuw Guinea, <em style=\"color:var(--teal)\">Lombok.</em>",
+  c_p:"Sen müsaitken açığız — pazartesi de, perşembe geç saate kadar da.",
+  c_d1:"Pazartesi", c_d2:"Salı", c_d3:"Çarşamba", c_d4:"Perşembe", c_d5:"Cuma", c_d6:"Cumartesi", c_d7:"Pazar", c_d7v:"Kapalı",
+  c_note:"* Cuma saatleri teyit edilecek — mevcut site hem 20:00 hem 22:00 gösteriyor.",
+  cc_h3:"Randevu mu lazım?", cc_p:"Knipklok ile online randevu al, ara — ya da kapıdan gir.", cc_book:"Online randevu",
+  f1:"© 2026 Barber Ferit · 1998'den beri erkek kuaförü · Utrecht",
+  f2:"Laan van Nieuw Guinea 105-A, Lombok · Baba &amp; oğul"
+}
+};
+
+function setLang(l){
+  const d=I18N[l];
+  document.querySelectorAll('[data-i18n]').forEach(el=>{const k=el.getAttribute('data-i18n'); if(d[k]!==undefined) el.innerHTML=d[k];});
+  document.documentElement.lang=l;
+  document.querySelectorAll('#langSwitch button').forEach(b=>b.classList.toggle('on',b.dataset.lang===l));
+  try{localStorage.setItem('bf-lang',l);}catch(e){}
+}
+document.querySelectorAll('#langSwitch button').forEach(b=>b.addEventListener('click',()=>setLang(b.dataset.lang)));
+try{const s=localStorage.getItem('bf-lang'); if(s&&I18N[s]&&s!=='nl')setLang(s);}catch(e){}
+
+const mq=document.getElementById('marq'); mq.innerHTML+=mq.innerHTML;
+</script>
+
+<!-- PREMIUM MOTION: Lenis + GSAP -->
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.3.4/dist/lenis.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js"></script>
+<script>
+(function(){
+  if (!window.gsap) return;
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  gsap.registerPlugin(ScrollTrigger, SplitText);
+
+  if (window.Lenis) {
+    const lenis = new Lenis({ lerp: 0.1, smoothWheel: true });
+    lenis.on('scroll', ScrollTrigger.update);
+    gsap.ticker.add(t => lenis.raf(t * 1000));
+    gsap.ticker.lagSmoothing(0);
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', e=>{
+        const id = a.getAttribute('href');
+        if (id.length > 1 && document.querySelector(id)) { e.preventDefault(); lenis.scrollTo(id, { offset: -70 }); }
+      });
+    });
+  }
+
+  try {
+    const split = new SplitText('.hero h1', { type: 'words', wordsClass: 'w' });
+    gsap.from(split.words, { y: 46, opacity: 0, rotateX: -40, duration: .9, stagger: .06, ease: 'back.out(1.4)', delay: .1 });
+  } catch(e) {}
+  gsap.from('.hero .eyebrow, .hero p, .hero .btn, .hero-rating', { y: 24, opacity: 0, duration: .7, stagger: .09, ease: 'power3.out', delay: .45 });
+
+  const hImg = document.querySelector('.hero-img');
+  if (hImg) gsap.to(hImg, { yPercent: 14, ease: 'none', scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true } });
+
+  document.querySelectorAll('section .wrap > *, .usp-in > div').forEach(el=>{
+    gsap.from(el, { y: 26, opacity: 0, duration: .7, ease: 'power3.out', immediateRender: false,
+      scrollTrigger: { trigger: el, start: 'top 88%', once: true } });
+  });
+  ScrollTrigger.batch('.prijs, .menu-item, .claims span', { start: 'top 92%', once: true,
+    onEnter: b => gsap.from(b, { y: 18, opacity: 0, duration: .55, stagger: .06, ease: 'power2.out', immediateRender: false }) });
+
+  if (matchMedia('(hover:hover) and (pointer:fine)').matches) {
+    document.querySelectorAll('.btn-cta').forEach(btn=>{
+      btn.addEventListener('mousemove', e=>{
+        const r = btn.getBoundingClientRect();
+        gsap.to(btn, { x: (e.clientX - r.left - r.width/2) * .18, y: (e.clientY - r.top - r.height/2) * .3, duration: .3 });
+      });
+      btn.addEventListener('mouseleave', ()=> gsap.to(btn, { x: 0, y: 0, duration: .5, ease: 'elastic.out(1, .45)' }));
+    });
+  }
+
+  function countUp(el){
+    const target=parseFloat(el.dataset.count), dec=parseInt(el.dataset.dec||"0");
+    const t0=performance.now(), dur=1400;
+    function tick(t){
+      const p=Math.min((t-t0)/dur,1), v=target*(1-Math.pow(1-p,3));
+      el.textContent=v.toFixed(dec).replace('.',',');
+      if(p<1)requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  }
+  document.querySelectorAll('[data-count]').forEach(el=>{
+    ScrollTrigger.create({ trigger: el, start: 'top 90%', once: true, onEnter: ()=>countUp(el) });
+  });
+  setTimeout(()=>{ document.querySelectorAll('[data-count]').forEach(el=>{ if(el.textContent==="0") el.textContent=el.dataset.count.replace('.',','); }); ScrollTrigger.refresh(); }, 1500);
+})();
+</script>
+</body>
+</html>
