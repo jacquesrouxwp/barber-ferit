@@ -131,6 +131,21 @@ footer{background:#10140F;color:rgba(244,241,234,.5);padding:34px 0;font-size:13
 .call-float:hover{transform:scale(1.08)}
 .call-float svg{width:26px;height:26px}
 
+.team-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:28px}
+@media(max-width:880px){.team-grid{grid-template-columns:1fr;gap:20px}}
+.team-card{background:#fff;border-radius:var(--radius);overflow:hidden;box-shadow:0 12px 34px rgba(25,29,26,.08);transition:.3s}
+.team-card:hover{transform:translateY(-4px);box-shadow:0 20px 50px rgba(25,29,26,.14)}
+.team-card img{width:100%;height:320px;object-fit:cover;display:block}
+.team-info{padding:22px 24px 26px}
+.team-info h3{font-family:'Fraunces',serif;font-size:22px;margin-bottom:2px;color:var(--teal)}
+.team-info span{display:block;font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--brass);font-weight:800;margin-bottom:10px}
+.team-info p{font-size:14.5px;color:var(--ink-soft);line-height:1.5}
+
+.reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:42px}
+@media(max-width:880px){.reviews-grid{grid-template-columns:1fr;gap:12px}}
+.review-card{background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 6px 18px rgba(25,29,26,.07);border:1px solid rgba(25,29,26,.06)}
+.review-card img{width:100%;display:block;height:auto}
+
 .grain{position:fixed;inset:-50%;width:200%;height:200%;pointer-events:none;z-index:90;opacity:.05;mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");animation:grain 8s steps(10) infinite}
 @keyframes grain{0%,100%{transform:translate(0,0)}10%{transform:translate(-5%,-7%)}30%{transform:translate(3%,-5%)}50%{transform:translate(-7%,4%)}70%{transform:translate(5%,6%)}90%{transform:translate(-3%,3%)}}
 @media (prefers-reduced-motion: reduce){
@@ -162,7 +177,7 @@ footer{background:#10140F;color:rgba(244,241,234,.5);padding:34px 0;font-size:13
 <div class="pole" aria-hidden="true"></div>
 
 <header class="hero">
-  <img class="hero-img" src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?q=80&w=1800&auto=format&fit=crop" alt="Barber Ferit Utrecht" onerror="this.style.display='none'">
+  <img class="hero-img" src="banner/SnapInsta.to_618476544_18069850994170336_2492335725810936052_n.jpg" alt="Barber Ferit Utrecht - Interieur" onerror="this.style.display='none'">
   <div class="wrap"><div class="hero-in">
     <div class="eyebrow" data-i18n="h_eyebrow">Herenkapper · Utrecht Lombok · sinds 1998</div>
     <h1 data-i18n="h_h1">Vakwerk van <em>vader op zoon.</em></h1>
@@ -205,6 +220,33 @@ footer{background:#10140F;color:rgba(244,241,234,.5);padding:34px 0;font-size:13
       <h3 data-i18n="sc_h3">Vader &amp; zoon, één stoel tegelijk</h3>
       <p data-i18n="sc_p">Meer dan 25 jaar ervaring in knippen en baardscheren — doorgegeven van generatie op generatie.</p>
       <div class="kaart" data-i18n="sc_kaart">🎁 <b>Spaarkaart:</b> volle kaart = 50% korting op je knipbeurt óf een gratis gel, wax, crème of shampoo.</div>
+    </div>
+  </div>
+</section>
+
+<section id="team">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow" data-i18n="t_eyebrow">Ons team</div>
+      <h2 data-i18n="t_h2">Vader &amp; zoon. <em>De handen achter de schaar.</em></h2>
+    </div>
+    <div class="team-grid">
+      <div class="team-card">
+        <img src="team/Ferit.jpg" alt="Ferit - Oprichter Barber Ferit">
+        <div class="team-info">
+          <h3>Ferit</h3>
+          <span data-i18n="t_role1">Oprichter &amp; meesterkapper</span>
+          <p data-i18n="t_bio1">Sinds 1998 het hart van de zaak. Ervaren handen, warme gastvrijheid en altijd tijd voor een goed gesprek.</p>
+        </div>
+      </div>
+      <div class="team-card">
+        <img src="team/Behran.jpg" alt="Behran - Tweede generatie bij Barber Ferit">
+        <div class="team-info">
+          <h3>Behran</h3>
+          <span data-i18n="t_role2">Tweede generatie</span>
+          <p data-i18n="t_bio2">Brengt frisse energie en moderne technieken, terwijl hij de familietraditie en het vakmanschap eert.</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -255,6 +297,15 @@ footer{background:#10140F;color:rgba(244,241,234,.5);padding:34px 0;font-size:13
       <span data-i18n="cl2">👨‍👦 Familiebedrijf: vader &amp; zoon</span>
       <span data-i18n="cl3">📅 Ook op maandag open</span>
       <span data-i18n="cl4">☕ Koffie staat klaar</span>
+    </div>
+
+    <div style="text-align:center;margin:32px 0 8px">
+      <div class="eyebrow" style="justify-content:center" data-i18n="r_eyebrow">Echte Google reviews</div>
+    </div>
+    <div class="reviews-grid">
+      <div class="review-card"><img src="reviews/photo_2026-06-12_18-04-03.jpg" alt="Klant review 1"></div>
+      <div class="review-card"><img src="reviews/photo_2026-06-12_18-04-36.jpg" alt="Klant review 2"></div>
+      <div class="review-card"><img src="reviews/photo_2026-06-12_18-04-59.jpg" alt="Klant review 3"></div>
     </div>
   </div>
 </section>
@@ -338,6 +389,13 @@ nl: {
   c_note:"* Vrijdagtijd bevestigen — huidige site toont 20:00 én 22:00.",
   cc_h3:"Afspraak maken?", cc_p:"Boek online via Knipklok, bel even — of loop gewoon binnen.", cc_book:"Boek online",
   book_apt:"Boek afspraak",
+  t_eyebrow:"Ons team",
+  t_h2:"Vader &amp; zoon. <em>De handen achter de schaar.</em>",
+  t_role1:"Oprichter &amp; meesterkapper",
+  t_bio1:"Sinds 1998 het hart van de zaak. Ervaren handen, warme gastvrijheid en altijd tijd voor een goed gesprek.",
+  t_role2:"Tweede generatie",
+  t_bio2:"Brengt frisse energie en moderne technieken, terwijl hij de familietraditie en het vakmanschap eert.",
+  r_eyebrow:"Echte Google reviews",
   f1:"© 2026 Barber Ferit · Herenkapper sinds 1998 · Utrecht",
   f2:"Laan van Nieuw Guinea 105-A, Lombok · Vader &amp; zoon"
 },
@@ -370,6 +428,13 @@ en: {
   c_note:"* Friday hours to be confirmed — current site shows both 8 pm and 10 pm.",
   cc_h3:"Book an appointment?", cc_p:"Book online via Knipklok, give us a call — or just walk in.", cc_book:"Book online",
   book_apt:"Book appointment",
+  t_eyebrow:"Our team",
+  t_h2:"Father &amp; son. <em>The hands behind the scissors.</em>",
+  t_role1:"Founder &amp; master barber",
+  t_bio1:"The heart of the shop since 1998. Experienced hands, warm hospitality and always time for a good chat.",
+  t_role2:"Second generation",
+  t_bio2:"Brings fresh energy and modern techniques while honoring the family tradition and craftsmanship.",
+  r_eyebrow:"Real Google reviews",
   f1:"© 2026 Barber Ferit · Men's barber since 1998 · Utrecht",
   f2:"Laan van Nieuw Guinea 105-A, Lombok · Father &amp; son"
 },
@@ -402,6 +467,13 @@ tr: {
   c_note:"* Cuma saatleri teyit edilecek — mevcut site hem 20:00 hem 22:00 gösteriyor.",
   cc_h3:"Randevu mu lazım?", cc_p:"Knipklok ile online randevu al, ara — ya da kapıdan gir.", cc_book:"Online randevu",
   book_apt:"Randevu al",
+  t_eyebrow:"Ekibimiz",
+  t_h2:"Baba &amp; oğul. <em>Makasın arkasındaki eller.</em>",
+  t_role1:"Kurucu &amp; usta kuaför",
+  t_bio1:"1998'den beri dükkanın kalbi. Deneyimli eller, sıcak misafirperverlik ve sohbet için her zaman zaman.",
+  t_role2:"İkinci nesil",
+  t_bio2:"Aile geleneğini ve işçiliği onurlandırırken taze enerji ve modern teknikler getiriyor.",
+  r_eyebrow:"Gerçek Google yorumları",
   f1:"© 2026 Barber Ferit · 1998'den beri erkek kuaförü · Utrecht",
   f2:"Laan van Nieuw Guinea 105-A, Lombok · Baba &amp; oğul"
 }
