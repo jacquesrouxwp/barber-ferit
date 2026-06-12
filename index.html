@@ -152,6 +152,35 @@ section{padding:92px 0}
 .cc-note{font-size:13px;color:rgba(234,240,236,.65);margin-top:14px}
 @media(max-width:880px){.contact-grid{grid-template-columns:1fr}}
 
+/* Appointment section with green background + video */
+.appointment-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:40px;
+  align-items:center;
+}
+@media(max-width:880px){
+  .appointment-grid{
+    grid-template-columns:1fr;
+    gap:28px;
+  }
+}
+.video-wrapper video{
+  width:100%;
+  border-radius:var(--radius);
+  box-shadow:0 12px 40px rgba(0,0,0,.25);
+}
+.appointment-text h2{
+  font-size:clamp(28px,4vw,42px);
+  margin:12px 0 16px;
+  color:#fff;
+}
+.appointment-text p{
+  color:rgba(234,240,236,.85);
+  font-size:15px;
+  line-height:1.5;
+}
+
 footer{background:#10140F;color:rgba(244,241,234,.5);padding:34px 0;font-size:13.5px}
 .foot-in{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center}
 .ig-link{color:rgba(244,241,234,.5);display:inline-flex;align-items:center;transition:.2s}
@@ -585,35 +614,46 @@ footer{background:#10140F;color:rgba(244,241,234,.5);padding:34px 0;font-size:13
   </div>
 </section>
 
-<section id="contact">
-  <div class="wrap contact-grid">
-    <div>
-      <div class="eyebrow" data-i18n="c_eyebrow">Kom langs</div>
-      <h2 style="font-size:clamp(32px,4vw,46px);margin:16px 0" data-i18n="c_h2">Laan van Nieuw Guinea, <em style="color:var(--teal)">Lombok.</em></h2>
-      <p style="color:var(--ink-soft)" data-i18n="c_p">Open wanneer jij vrij bent — ook op maandag, en donderdag tot 's avonds laat.</p>
-      <div class="hours">
-        <div><span data-i18n="c_d1">Maandag</span><span>12:30 – 19:30</span></div>
-        <div><span data-i18n="c_d2">Dinsdag</span><span>12:30 – 19:30</span></div>
-        <div><span data-i18n="c_d3">Woensdag</span><span>10:30 – 19:00</span></div>
-        <div class="late"><span data-i18n="c_d4">Donderdag</span><span>11:30 – 22:00</span></div>
-        <div><span data-i18n="c_d5">Vrijdag</span><span>10:30 – 20:00 *</span></div>
-        <div><span data-i18n="c_d6">Zaterdag</span><span>10:30 – 18:00</span></div>
-        <div><span data-i18n="c_d7">Zondag</span><span data-i18n="c_d7v">Gesloten</span></div>
+<section id="contact" style="background:var(--teal-deep); color:#EAF0EC;">
+  <div class="wrap">
+    <div class="appointment-grid">
+      <!-- Video -->
+      <div class="video-wrapper">
+        <video 
+          src="apointment/appointment-video.mp4" 
+          autoplay 
+          muted 
+          loop 
+          playsinline
+          style="width:100%; border-radius:var(--radius); box-shadow:0 12px 40px rgba(0,0,0,.3); display:block;"
+        ></video>
       </div>
-      <p style="font-size:13px;color:var(--ink-soft);margin-top:14px" data-i18n="c_note">* Vrijdagtijd bevestigen — huidige site toont 20:00 én 22:00. <!-- TODO --></p>
-    </div>
-    <div class="contact-card">
-      <h3 class="serif" data-i18n="cc_h3">Afspraak maken?</h3>
-      <p data-i18n="cc_p">Boek online via Knipklok, bel even — of loop gewoon binnen.</p>
-      <div class="addr">Laan van Nieuw Guinea 105-A<br>3531 JG Utrecht</div>
-      <a class="btn btn-cta" href="https://knipklok.nl/kapperszaak/barber-ferit" target="_blank" rel="noopener" style="background:#fff;color:var(--teal-deep)">
-        <svg class="ic20" viewBox="0 0 24 24" fill="currentColor"><path d="M19 4h-1V2h-2v2H8V2H6v2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 16H5V10h14v10ZM5 8V6h14v2H5Z"/></svg>
-        <span data-i18n="cc_book">Boek online</span>
-      </a>
-      <div style="margin-top:14px">
-        <a class="btn btn-ghost" href="tel:0302990539" style="color:#EAF0EC;border-color:rgba(234,240,236,.4);padding:11px 20px;font-size:14px"><span dir="ltr">030 299 0539</span></a>
+
+      <!-- Text & CTA -->
+      <div class="appointment-text">
+        <div class="eyebrow" style="color:#E0B86A;" data-i18n="a_eyebrow">Afspraak maken</div>
+        <h2 style="font-size:clamp(28px,4vw,42px); margin:12px 0 16px; color:#fff;" data-i18n="a_title">Boek je afspraak bij Barber Ferit</h2>
+        <p style="color:rgba(234,240,236,.85); font-size:15px; line-height:1.5;" data-i18n="a_desc">
+          Vader en zoon nemen de tijd voor je. Ervaar het vakmanschap in een ontspannen sfeer.
+        </p>
+
+        <div style="display:flex; gap:12px; flex-wrap:wrap; margin:24px 0;">
+          <a class="btn btn-cta" href="https://knipklok.nl/kapperszaak/barber-ferit" target="_blank" rel="noopener" 
+             style="background:#fff; color:var(--teal-deep);">
+            <svg class="ic20" viewBox="0 0 24 24" fill="currentColor"><path d="M19 4h-1V2h-2v2H8V2H6v2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 16H5V10h14v10ZM5 8V6h14v2H5Z"/></svg>
+            Boek online
+          </a>
+          <a class="btn btn-ghost" href="tel:0302990539" 
+             style="border-color:#EAF0EC; color:#EAF0EC; padding:12px 22px;">
+            Bel 030 299 0539
+          </a>
+        </div>
+
+        <div style="font-size:14px; color:rgba(234,240,236,.7);">
+          Laan van Nieuw Guinea 105-A<br>
+          3531 JG Utrecht
+        </div>
       </div>
-      <div class="cc-note">info@barberferit.nl</div>
     </div>
   </div>
 </section>
@@ -685,6 +725,9 @@ nl: {
   pr3_feat1:"Wassen + knippen",
   pr3_feat2:"Volledige baardverzorging",
   pr3_feat3:"Luxe complete ervaring",
+  a_eyebrow:"Afspraak maken",
+  a_title:"Boek je afspraak bij Barber Ferit",
+  a_desc:"Vader en zoon nemen de tijd voor je. Ervaar het vakmanschap in een ontspannen sfeer.",
   f1:"© 2026 Barber Ferit · Herenkapper sinds 1998 · Utrecht",
   f2:"Laan van Nieuw Guinea 105-A, Lombok · Vader &amp; zoon"
 },
@@ -735,6 +778,9 @@ en: {
   pr3_feat1:"Wash + haircut",
   pr3_feat2:"Full beard care",
   pr3_feat3:"Luxury complete experience",
+  a_eyebrow:"Make an appointment",
+  a_title:"Book your appointment at Barber Ferit",
+  a_desc:"Father and son take their time for you. Experience the craftsmanship in a relaxed atmosphere.",
   f1:"© 2026 Barber Ferit · Men's barber since 1998 · Utrecht",
   f2:"Laan van Nieuw Guinea 105-A, Lombok · Father &amp; son"
 },
@@ -785,6 +831,9 @@ tr: {
   pr3_feat1:"Yıkama + kesim",
   pr3_feat2:"Tam sakal bakımı",
   pr3_feat3:"Lüks tam deneyim",
+  a_eyebrow:"Randevu al",
+  a_title:"Barber Ferit'te randevunu ayarla",
+  a_desc:"Baba ve oğul senin için zaman ayırıyor. Rahat bir atmosferde ustalığı deneyimle.",
   f1:"© 2026 Barber Ferit · 1998'den beri erkek kuaförü · Utrecht",
   f2:"Laan van Nieuw Guinea 105-A, Lombok · Baba &amp; oğul"
 }
