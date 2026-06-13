@@ -40,26 +40,9 @@ a{color:inherit;text-decoration:none}
 .pole{height:6px;background:repeating-linear-gradient(135deg,#9E2B25 0 14px,#F4F1EA 14px 28px,#274B6D 28px 42px,#F4F1EA 42px 56px);background-size:200% 100%;animation:pole 14s linear infinite}
 @keyframes pole{from{background-position:0 0}to{background-position:200% 0}}
 
-nav{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(244,241,234,.97);backdrop-filter:blur(12px);border-bottom:1px solid rgba(25,29,26,.08);padding-top:calc(32px + env(safe-area-inset-top))}
-.nav-in{display:flex;align-items:center;justify-content:space-between;height:72px;gap:14px}
-
-.barber-stripe-top {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: calc(32px + env(safe-area-inset-top));
-  z-index: 65;
-  background: repeating-linear-gradient(
-    135deg,
-    #9E2B25 0 16px,
-    #F4F1EA 16px 32px,
-    #274B6D 32px 48px,
-    #F4F1EA 48px 64px
-  );
-  background-size: 300% 100%;
-  animation: pole 15s linear infinite;
-}
+nav{position:fixed;top:0;left:0;right:0;z-index:50;background:#F4F1EA;backdrop-filter:blur(12px);border-bottom:1px solid rgba(25,29,26,.08)}
+nav::before{content:'';position:absolute;top:0;left:0;right:0;height:calc(32px + env(safe-area-inset-top));background:repeating-linear-gradient(135deg,#9E2B25 0 16px,#F4F1EA 16px 32px,#274B6D 32px 48px,#F4F1EA 48px 64px);background-size:300% 100%;animation:pole 15s linear infinite;z-index:1}
+.nav-in{display:flex;align-items:center;justify-content:space-between;height:72px;gap:14px;position:relative;z-index:2;padding-top:calc(32px + env(safe-area-inset-top))}
 .logo{font-family:'Fraunces',serif;font-size:21px;font-weight:700;white-space:nowrap}
 .logo em{color:var(--teal);font-style:italic}
 .logo small{font-size:11px;letter-spacing:.18em;color:var(--brass);display:block;font-family:'Manrope',sans-serif;font-weight:800;margin-top:-3px}
@@ -243,11 +226,22 @@ footer{background:#10140F;color:rgba(244,241,234,.5);padding:34px 0;font-size:13
   position:fixed;
   inset:0;
   z-index:9999;
-  background:var(--paper);
+  background:rgba(244,241,234,0.25);
+  backdrop-filter:blur(18px);
+  -webkit-backdrop-filter:blur(18px);
   display:flex;
   align-items:center;
   justify-content:center;
-  pointer-events:none; /* click through once fading */
+  pointer-events:none;
+}
+.nav-logo-img{
+  height:34px;
+  width:auto;
+  display:inline-block;
+  vertical-align:middle;
+  margin-left:10px;
+  opacity:0;
+  transition:opacity 350ms ease;
 }
 .intro-logo{
   width:auto;
@@ -396,8 +390,6 @@ footer{background:#10140F;color:rgba(244,241,234,.5);padding:34px 0;font-size:13
 <div class="grain" aria-hidden="true"></div>
 
 <!-- Barber pole stripe at the very top, above the nav, thick animated barber stripe to cover top space -->
-<div class="barber-stripe-top"></div>
-
 <!-- Logo intro: appears center then stylishly flies to top-left nav corner (like on Venus project) -->
 <div id="logoIntro" class="logo-intro" aria-hidden="true">
   <img src="logo/ferit-logo.png" alt="Barber Ferit" class="intro-logo">
@@ -405,7 +397,7 @@ footer{background:#10140F;color:rgba(244,241,234,.5);padding:34px 0;font-size:13
 
 <nav>
   <div class="wrap nav-in">
-    <div class="logo">Barber <em>Ferit</em><small>SINDS 1998</small></div>
+    <div class="logo">Barber <em>Ferit</em><img src="logo/ferit-logo.png" alt="" class="nav-logo-img" id="navLogoImg"><small>SINDS 1998</small></div>
     <div class="nav-links">
       <a href="#verhaal" data-i18n="n1">Ons verhaal</a>
       <a href="#prijzen" data-i18n="n2">Prijslijst</a>
@@ -1017,38 +1009,50 @@ const mq=document.getElementById('marq'); mq.innerHTML+=mq.innerHTML;
   const logo = intro.querySelector('.intro-logo');
 
   function runIntro(){
-    // Make sure body doesn't scroll during the reveal
     const prevOverflow = document.documentElement.style.overflow;
     document.documentElement.style.overflow = 'hidden';
 
-    // 1. Elegant entrance in center (pop in)
+    // 1. Pop in at center
     requestAnimationFrame(() => {
       logo.style.transition = 'transform 680ms cubic-bezier(0.23, 1.0, 0.32, 1), opacity 520ms ease';
       logo.style.transform = 'scale(1)';
       logo.style.opacity = '1';
     });
 
-    // 2. After a nice pause, stylishly move the logo to the nav corner
+    // 2. Fly to exact nav logo position
     setTimeout(() => {
-      // These values are tuned to land the logo in the top-left nav area
-      // (adjust numbers if your nav padding / logo size changes)
-      const moveX = -48;   // move left toward nav
-      const moveY = -46;   // move up toward nav
-      const scale   = 0.36;
+      const navLogo = document.getElementById('navLogoImg');
+      const introRect = logo.getBoundingClientRect();
+      const navRect = navLogo ? navLogo.getBoundingClientRect() : null;
 
-      logo.style.transition = 'transform 980ms cubic-bezier(0.62, 0.05, 0.25, 0.99)';
-      logo.style.transform = `translate(${moveX}vw, ${moveY}vh) scale(${scale})`;
+      let tx, ty, sc;
+      if (navRect && navRect.width > 0) {
+        const introCX = introRect.left + introRect.width / 2;
+        const introCY = introRect.top  + introRect.height / 2;
+        const navCX   = navRect.left   + navRect.width  / 2;
+        const navCY   = navRect.top    + navRect.height / 2;
+        tx = navCX - introCX;
+        ty = navCY - introCY;
+        sc = navRect.height / introRect.height;
+      } else {
+        tx = -window.innerWidth * 0.42;
+        ty = -window.innerHeight * 0.45;
+        sc = 0.13;
+      }
 
-      // 3. When the logo has arrived in the corner, fade out the whole intro overlay
+      logo.style.transition = 'transform 900ms cubic-bezier(0.62, 0.05, 0.25, 0.99), opacity 200ms ease';
+      logo.style.transform = `translate(${tx}px, ${ty}px) scale(${sc})`;
+
+      // 3. On arrival — show nav logo, fade out overlay
       setTimeout(() => {
-        intro.style.transition = 'opacity 380ms ease';
+        if(navLogo) navLogo.style.opacity = '1';
+        intro.style.transition = 'opacity 350ms ease';
         intro.style.opacity = '0';
-
         setTimeout(() => {
           document.documentElement.style.overflow = prevOverflow || '';
           if(intro && intro.parentNode) intro.parentNode.removeChild(intro);
-        }, 420);
-      }, 1020);
+        }, 380);
+      }, 950);
     }, 1350);
   }
 
